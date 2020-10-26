@@ -53,5 +53,16 @@ public class springfxqcontroller {
 		List<FXQuote> retList = fxqService.getFXQuoteSorted();
 		return retList;		
 	}
+	
+	@GetMapping("/symbols/{symbol}")
+	public List<FXQuote> requestFXQouteSorted(@PathVariable String symbol) {
+		List<FXQuote> retList = fxqService.getQuoteSymbolSorted(symbol);
+		return retList;		
+	}
 
+	@GetMapping("/symbols/{symbol}/tenor/{tenor}")
+	public List<FXQuote> requestFXQoute(@PathVariable String symbol, @PathVariable String tenor) {
+		List<FXQuote> retList = fxqService.getQuoteSymbolTenorSorted(symbol, tenor);
+		return retList;		
+	}
 }
