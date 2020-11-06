@@ -12,11 +12,11 @@
 	<artifactId>springfxq</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringFXQ</name>
-	<description>FX Quote project for Spring Boot</description>
+	<description>FX Quote project for Spring Boot, Woodspring 0.0.0 for openapi 3 documention</description>
 
 	<properties>
 		<java.version>11</java.version>
-		<openapi.version>1.2.32</openapi.version>
+		<openapi.version>1.4.8</openapi.version>
 	</properties>
 
 	<dependencies>
@@ -28,6 +28,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

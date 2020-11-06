@@ -1,9 +1,15 @@
 package woodspring.springfxq.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //@Data
+//@XmlRootElement(name = "FXQuote")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SymbolTenor implements Comparable< SymbolTenor> {
 	private static final Logger logger = LoggerFactory.getLogger( SymbolTenor.class);
 	

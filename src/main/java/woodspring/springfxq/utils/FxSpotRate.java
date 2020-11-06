@@ -6,10 +6,12 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import woodspring.springfxq.model.FXQuote;
 import woodspring.springfxq.model.FXSpot;
+import woodspring.springfxq.repository.FXSpotRepository;
 
 @Component
 public class FxSpotRate {
@@ -24,6 +26,9 @@ public class FxSpotRate {
 	
 	//private ConcurrentSkipListMap<FxSpotKey, FXSpot> quoteMap = new ConcurrentSkipListMap<>();
 	//private ConcurrentSkipListMap<SymbolTenor, ConcurrentSkipListMap<String, ArrayList<FXSpot>>> quoteSTMap = new ConcurrentSkipListMap<>();
+	
+	@Autowired
+	private FXSpotRepository fxSpotRepo;
 	
 	private List<FXQuote> fxQuoteList = new ArrayList<FXQuote>();
 	
@@ -69,6 +74,7 @@ public class FxSpotRate {
 		retFx.setPrice(((pluse == 0) ? price.subtract(value) : price.add( value)).setScale(6, BigDecimal.ROUND_DOWN));
 		retFx.setQuoteTime( System.nanoTime());
 		retFx.setTenor(tenor);
+		fxSpotRepo.save( retFx);
 		priceList.remove(ind);
 		priceList.add(ind, retFx.getPrice());
 		priceList.set( ind,  retFx.getPrice());

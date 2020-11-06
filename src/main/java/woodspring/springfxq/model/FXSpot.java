@@ -3,9 +3,28 @@ package woodspring.springfxq.model;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+//@XmlRootElement(name = "FXSpot")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Document
 public class FXSpot {
 	static final DecimalFormat f = new DecimalFormat("##.00000000");
+	@Id
+	private String id;
+	@NotNull
+	@NotBlank
 	private String symbol;
+	@NotNull
+	@NotBlank
 	private String tenor;
 	private String pxStr;
 	private long quoteTime;

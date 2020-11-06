@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import woodspring.springfxq.model.FXQuote;
+import woodspring.springfxq.repository.FXQuoteRepository;
+import woodspring.springfxq.repository.FXSpotRepository;
 import woodspring.springfxq.service.springfxqservice;
 import woodspring.springfxq.utils.FxSpotRate;
 
@@ -19,6 +21,12 @@ public class FXQServiceImpl implements springfxqservice {
 
 	@Autowired
 	FxSpotRate spotRate;
+	
+	@Autowired
+	FXQuoteRepository fxQuoteRepo;
+	
+	@Autowired
+	FXSpotRepository fxSpotRepo;
 
 	private int randseed = 550;
 
@@ -26,6 +34,9 @@ public class FXQServiceImpl implements springfxqservice {
 	public List<FXQuote> getFXQuote() {
 		int num = (int) (Math.random() * randseed);
 		List<FXQuote> retList = spotRate.getFXQuoteList(num);
+		retList.stream().forEach( fxq -> {
+			fxQuoteRepo.save( fxq);
+		});
 		return retList;
 	}
 
@@ -40,6 +51,9 @@ public class FXQServiceImpl implements springfxqservice {
 	public List<FXQuote> getQuoteSymbolTenor(String symbol, String tenor) {
 		int num = (int) (Math.random() * randseed);
 		List<FXQuote> retList = spotRate.getFXQuoteList(num, symbol, tenor);
+		retList.stream().forEach( fxq -> {
+			fxQuoteRepo.save( fxq);
+		});
 		return retList;
 	}
 
@@ -52,6 +66,9 @@ public class FXQServiceImpl implements springfxqservice {
 				.thenComparing(FXQuote::getTenor)
 				;
 		retList = retList.stream().sorted(orderByKey).collect(Collectors.toList());
+		retList.stream().forEach( fxq -> {
+			fxQuoteRepo.save( fxq);
+		});
 		return retList;
 	}
 
@@ -64,6 +81,9 @@ public class FXQServiceImpl implements springfxqservice {
 				
 				;
 		retList = retList.stream().sorted(orderByKey).collect(Collectors.toList());
+		retList.stream().forEach( fxq -> {
+			fxQuoteRepo.save( fxq);
+		});
 		return retList;
 	}
 
@@ -77,6 +97,9 @@ public class FXQServiceImpl implements springfxqservice {
 				
 				;
 		retList = retList.stream().sorted(orderByKey).collect(Collectors.toList());
+		retList.stream().forEach( fxq -> {
+			fxQuoteRepo.save( fxq);
+		});
 		return retList;
 	}
 
