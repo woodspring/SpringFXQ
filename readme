@@ -1,0 +1,35 @@
+#SpringFXQ:
+ http://localhost:4983/FXQ/list
+ http://localhost:4983/FXQ/slist    (sorted)
+ http://localhost:4983/FXQ/symbols/CADJPY
+ http://localhost:4983/FXQ/symbols/EURUSD (sorted)
+ as Symbol tenor:
+ http://localhost:4983/FXQ/symbols/CADJPY/tenor/1M
+ http://localhost:4983/FXQ/symbols/EURUSD/ON (sorted)
+
+
+for swagger 3 (OpenAPI 3)
+ http://localhost:4983/swagger-ui.html
+ 
+ for Actuator:
+http://localhost:4983/actuator/metrics
+{"_links":
+{"self":{"href":"http://localhost:4983/actuator","templated":false},
+ "beans":{"href":"http://localhost:4983/actuator/beans","templated":false},
+ "caches":{"href":"http://localhost:4983/actuator/caches","templated":false},
+ "caches-cache":{"href":"http://localhost:4983/actuator/caches/{cache}","templated":true},
+ "health":{"href":"http://localhost:4983/actuator/health","templated":false},
+ "health-path":{"href":"http://localhost:4983/actuator/health/{*path}","templated":true},
+ "info":{"href":"http://localhost:4983/actuator/info","templated":false},
+ "conditions":{"href":"http://localhost:4983/actuator/conditions","templated":false},
+ "configprops":{"href":"http://localhost:4983/actuator/configprops","templated":false},
+ "env-toMatch":{"href":"http://localhost:4983/actuator/env/{toMatch}","templated":true},
+ "env":{"href":"http://localhost:4983/actuator/env","templated":false},
+ "loggers-name":{"href":"http://localhost:4983/actuator/loggers/{name}", "templated":true},
+ "loggers":{"href":"http://localhost:4983/actuator/loggers","templated":false},
+ "heapdump":{"href":"http://localhost:4983/actuator/heapdump","templated":false},
+ "threaddump":{"href":"http://localhost:4983/actuator/threaddump","templated":false},
+ "metrics-requiredMetricName":{"href":"http://localhost:4983/actuator/metrics/{requiredMetricName}","templated":true},
+ "metrics":{"href":"http://localhost:4983/actuator/metrics","templated":false},
+ "scheduledtasks":{"href":"http://localhost:4983/actuator/scheduledtasks","templated":false},
+ "mappings":{"href":"http://localhost:4983/actuator/mappings","templated":false}}}
