@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @XmlRootElement(name = "FXQuote")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Document
-public class FXQuote {
+public class FXQuote  implements Comparable<FXQuote> {
 	static final DecimalFormat f = new DecimalFormat("##.00000000");
 	
 	@Id
@@ -76,6 +76,12 @@ public class FXQuote {
 		strBuf.append("price="+pxStr+"||");
 		
 		return strBuf.toString();
+	}
+
+	@Override
+	public int compareTo(FXQuote o) {
+		// TODO Auto-generated method stub
+		return this.symbol.compareTo( ((FXQuote)o).getSymbol());
 	}
 
 }

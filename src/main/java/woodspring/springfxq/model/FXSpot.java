@@ -2,6 +2,7 @@ package woodspring.springfxq.model;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.Comparator;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //@XmlRootElement(name = "FXSpot")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Document
-public class FXSpot {
+public class FXSpot<T> implements Comparable<T> {
 	static final DecimalFormat f = new DecimalFormat("##.00000000");
 	@Id
 	private String id;
@@ -62,6 +63,12 @@ public class FXSpot {
 	}
 	public void setQuoteTime(long quoteTime) {
 		this.quoteTime = quoteTime;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		return this.symbol.compareTo( ((FXSpot)o).getSymbol()); 
+
 	}
 
 }

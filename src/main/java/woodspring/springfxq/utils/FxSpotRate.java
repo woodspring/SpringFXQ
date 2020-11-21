@@ -23,6 +23,7 @@ public class FxSpotRate {
 	private  ArrayList<String> tenorStrList = new ArrayList<>();
 	private int size =0;
 	private int tenorSize =0;
+	private int tenor=100;
 	
 	//private ConcurrentSkipListMap<FxSpotKey, FXSpot> quoteMap = new ConcurrentSkipListMap<>();
 	//private ConcurrentSkipListMap<SymbolTenor, ConcurrentSkipListMap<String, ArrayList<FXSpot>>> quoteSTMap = new ConcurrentSkipListMap<>();
@@ -74,7 +75,7 @@ public class FxSpotRate {
 		retFx.setPrice(((pluse == 0) ? price.subtract(value) : price.add( value)).setScale(6, BigDecimal.ROUND_DOWN));
 		retFx.setQuoteTime( System.nanoTime());
 		retFx.setTenor(tenor);
-		fxSpotRepo.save( retFx);
+		// add to mongodb          fxSpotRepo.save( retFx);
 		priceList.remove(ind);
 		priceList.add(ind, retFx.getPrice());
 		priceList.set( ind,  retFx.getPrice());
