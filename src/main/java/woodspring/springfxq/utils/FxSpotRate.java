@@ -73,7 +73,7 @@ public class FxSpotRate {
 		BigDecimal price = priceList.get(ind);
 		BigDecimal value = price.multiply( new BigDecimal(rang* 0.000001));
 		retFx.setPrice(((pluse == 0) ? price.subtract(value) : price.add( value)).setScale(6, BigDecimal.ROUND_DOWN));
-		retFx.setQuoteTime( System.nanoTime());
+		retFx.setQuoteTime( System.currentTimeMillis()); //.nanoTime());
 		retFx.setTenor(tenor);
 		// add to mongodb          fxSpotRepo.save( retFx);
 		priceList.remove(ind);
