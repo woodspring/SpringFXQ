@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 import woodspring.springfxq.model.FXQuote;
 import woodspring.springfxq.repository.FXQuoteRepository;
 import woodspring.springfxq.repository.FXSpotRepository;
-import woodspring.springfxq.service.springfxqservice;
+import woodspring.springfxq.service.SpringFXQService;
 import woodspring.springfxq.utils.FxSpotRate;
 
-@Service
-public class FXQServiceImpl implements springfxqservice {
+@Service("fxqService")
+public class FXQServiceImpl implements SpringFXQService {
 	private static final Logger looger = LoggerFactory.getLogger(FXQServiceImpl.class);
 
 	@Autowired
@@ -93,9 +93,7 @@ public class FXQServiceImpl implements springfxqservice {
 		List<FXQuote> retList = spotRate.getFXQuoteList(num, symbol, tenor);
 		Comparator<FXQuote> orderByKey = Comparator.comparing(FXQuote::getSymbol)
 				.thenComparing(FXQuote::getTenor)
-				.thenComparing(FXQuote::getPrice)
-				
-				;
+				.thenComparing(FXQuote::getPrice);
 		retList = retList.stream().sorted(orderByKey).collect(Collectors.toList());
 		retList.stream().forEach( fxq -> {
 			fxQuoteRepo.save( fxq);

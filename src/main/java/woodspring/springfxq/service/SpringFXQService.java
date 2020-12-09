@@ -4,7 +4,7 @@ import java.util.List;
 
 import woodspring.springfxq.model.FXQuote;
 
-public interface springfxqservice {
+public interface SpringFXQService {
 	
 	List<FXQuote> getFXQuote();
 	List<FXQuote> getQuoteSymbol(String symbol);

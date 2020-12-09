@@ -29,12 +29,14 @@ public class FXQuote  implements Comparable<FXQuote> {
 	private String tenor;
 	private String pxStr;
 	private FXSpot fxSpot;
+	private String price;
 
 	public FXQuote(String symbol, String tenor, String price, FXSpot fxSpot) {
 		this.symbol = symbol;
 		this.tenor = tenor;
 		this.pxStr = price;
 		this.fxSpot = fxSpot;
+		this.price = price;
 	}
 
 	public String getSymbol() {
