@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import woodspring.springfxq.model.FXQuote;
+import woodspring.springfxq.model.FXSpot;
 import woodspring.springfxq.repository.FXQuoteRepository;
 import woodspring.springfxq.repository.FXSpotRepository;
 import woodspring.springfxq.service.SpringFXQService;
